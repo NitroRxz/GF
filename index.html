@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For You ❤️</title>
+  
+  <!-- Google Fonts & Font Awesome -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Great+Vibes&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Animated Canvas Background -->
+  <canvas id="bgCanvas"></canvas>
+  <div class="cursor-glow" id="cursorGlow"></div>
+
+  <!-- Hero / Entry Screen Overlay -->
+  <section id="heroOverlay" class="hero-overlay">
+    <div class="hero-content">
+      <div class="glowing-heart-wrapper">
+        <div class="heart-pulse-glow"></div>
+        <svg class="hero-heart-svg" viewBox="0 0 32 32">
+          <defs>
+            <linearGradient id="heartGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#ff2a6d" />
+              <stop offset="50%" stop-color="#ff0055" />
+              <stop offset="100%" stop-color="#800020" />
+            </linearGradient>
+            <filter id="glow">
+              <feGaussianBlur stdDeviation="1.5" result="coloredBlur"/>
+              <feMerge>
+                <feMergeNode in="coloredBlur"/>
+                <feMergeNode in="SourceGraphic"/>
+              </feMerge>
+            </filter>
+          </defs>
+          <path fill="url(#heartGrad)" filter="url(#glow)" d="M16 28.5S2 19 2 9.5C2 5.36 5.36 2 9.5 2c2.4 0 4.56 1.13 6 2.9C16.94 3.13 19.1 2 21.5 2 25.64 2 29 5.36 29 9.5 29 19 16 28.5 16 28.5z"/>
+        </svg>
+      </div>
+
+      <h1 class="hero-title">for you. ❤️</h1>
+
+      <button id="openBtn" class="btn-open">
+        <span>open</span>
+        <i class="fa-solid fa-sparkles"></i>
+      </button>
+    </div>
+  </section>
+
+  <!-- Main Website Content -->
+  <main id="mainContent" class="main-content hidden">
+    <!-- Header / Navigation -->
+    <header class="top-header">
+      <div class="header-logo">
+        <i class="fa-solid fa-heart logo-icon"></i>
+        <span>Forever</span>
+      </div>
+      <div class="music-player-pill" id="musicToggle">
+        <i class="fa-solid fa-music"></i>
+        <span id="musicStatus">Atmosphere</span>
+      </div>
+    </header>
+
+    <!-- Main Message Section -->
+    <section class="section-container hero-message-section">
+      <div class="badge-tag">
+        <i class="fa-solid fa-star"></i>
+        <span>My Favorite Person</span>
+      </div>
+      
+      <h2 class="main-heading">To my favorite person ❤️</h2>
+      
+      <p class="subtitle-text">
+        "Even with all this distance between us,<br>
+        you still manage to make my days better."
+      </p>
+
+      <!-- Glassmorphism Love Letter -->
+      <div class="glass-card letter-card">
+        <div class="card-glow-bg"></div>
+        <div class="letter-header">
+          <i class="fa-solid fa-envelope-open-text letter-icon"></i>
+          <span class="letter-date">A Special Note</span>
+        </div>
+        <div class="letter-body">
+          <p>My Dearest,</p>
+          <p>
+            I created this page to give you a little piece of my heart whenever you open it. No matter how many miles lie between us, every thought of you brings a warmth that words can barely capture.
+          </p>
+          <p>
+            You are my quiet comfort, my brightest smile, and my favorite part of every day. Thank you for being yourself, and for making my world feel infinitely more beautiful.
+          </p>
+          <p class="letter-sign-off">Forever yours ❤️</p>
+        </div>
+        <div class="corner-sparkle top-right"><i class="fa-solid fa-sparkle"></i></div>
+        <div class="corner-sparkle bottom-left"><i class="fa-solid fa-sparkle"></i></div>
+      </div>
+    </section>
+
+    <!-- Interactive Secret Messages Section -->
+    <section class="section-container secret-cards-section">
+      <div class="section-header">
+        <h3 class="section-title">Tap to reveal</h3>
+        <p class="section-subtitle">A few secret thoughts stored away for you</p>
+      </div>
+
+      <div class="cards-grid">
+        <!-- Card 1 -->
+        <div class="interactive-card" data-tilt data-card-id="1">
+          <div class="card-inner">
+            <div class="card-icon"><i class="fa-solid fa-comment-dots"></i></div>
+            <h4 class="card-title">something I wanted to tell you</h4>
+            <span class="card-prompt">Click to open <i class="fa-solid fa-arrow-right"></i></span>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="interactive-card" data-tilt data-card-id="2">
+          <div class="card-inner">
+            <div class="card-icon"><i class="fa-solid fa-bell"></i></div>
+            <h4 class="card-title">one little reminder</h4>
+            <span class="card-prompt">Click to open <i class="fa-solid fa-arrow-right"></i></span>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="interactive-card" data-tilt data-card-id="3">
+          <div class="card-inner">
+            <div class="card-icon"><i class="fa-solid fa-gift"></i></div>
+            <h4 class="card-title">just because</h4>
+            <span class="card-prompt">Click to open <i class="fa-solid fa-arrow-right"></i></span>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="interactive-card highlight-card" data-tilt data-card-id="4">
+          <div class="card-inner">
+            <div class="card-icon"><i class="fa-solid fa-heart"></i></div>
+            <h4 class="card-title">❤️️</h4>
+            <span class="card-prompt">Click to open <i class="fa-solid fa-arrow-right"></i></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+      <p>Made with all my love ❤️</p>
+    </footer>
+  </main>
+
+  <!-- Modal for Interactive Cards -->
+  <div id="messageModal" class="modal-overlay hidden">
+    <div class="modal-backdrop"></div>
+    <div class="glass-card modal-card">
+      <button id="closeModal" class="modal-close-btn">&times;</button>
+      <div class="modal-icon-header">
+        <i id="modalIcon" class="fa-solid fa-heart"></i>
+      </div>
+      <h3 id="modalTitle" class="modal-title">Title Here</h3>
+      <div class="modal-divider"></div>
+      <p id="modalBody" class="modal-body-text">
+        Content goes here...
+      </p>
+      <button id="modalDoneBtn" class="btn-primary">Close ❤️</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
